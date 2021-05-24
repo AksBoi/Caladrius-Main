@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reso.css">
+</head>
+
+<body>
+    <div id="list" class="card d">
+
+    </div>
+    <ul>
+
+    </ul>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+
+    <script id="MainScript">
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyA8Se1u5bYf34kIGFVIdKahdB5WunXWg0Y",
+            authDomain: "donateform-96861.firebaseapp.com",
+            databaseURL: "https://donateform-96861-default-rtdb.firebaseio.com",
+            projectId: "donateform-96861",
+            storageBucket: "donateform-96861.appspot.com",
+            messagingSenderId: "1035749904577",
+            appId: "1:1035749904577:web:84fd06d1e9b0478ed0c440"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var pID = 0;
+
+        function addItemsToList(name, OxygrnLevel, COVIDpositive, CurrentDate, CurrnetTime, Pulse, diaBP, sysBP) {
+            var list = document.getElementById('list');
+            var header = document.createElement('h2');
+            var ul = document.createElement('ul');
+            var ul = document.createElement('div');
+            header.innerHTML = 'Record-' + (++pID);
+
+            var _name = document.createElement('li');
+            var _COVIDpositive = document.createElement('li');
+            var _CurrentDate = document.createElement('li');
+            var _CurrnetTime = document.createElement('li');
+            var _OxygrnLevel = document.createElement('li');
+            var _Pulse = document.createElement('li');
+            var _diaBP = document.createElement('li');
+            var _sysBP = document.createElement('li');
+
+            _name.innerHTML = 'Name:' + name;
+            _COVIDpositive.innerHTML = 'COVID positive : ' + COVIDpositive;
+            _CurrentDate.innerHTML = 'Reporting Date : ' + CurrentDate;
+            _CurrnetTime.innerHTML = 'Reporting Time : ' + CurrnetTime;
+            _OxygrnLevel.innerHTML = 'Oxygen Level :' + OxygrnLevel;
+            _Pulse.innerHTML = 'Pulse : ' + Pulse;
+            _diaBP.innerHTML = 'diaBP : ' + diaBP;
+            _sysBP.innerHTML = 'sysBP : ' + sysBP;
+
+            ul.appendChild(header);
+            ul.appendChild(_name);
+            ul.appendChild(_COVIDpositive);
+            ul.appendChild(_CurrentDate);
+            ul.appendChild(_CurrnetTime);
+            ul.appendChild(_OxygrnLevel);
+            ul.appendChild(_Pulse);
+            ul.appendChild(_diaBP);
+            ul.appendChild(_sysBP);
+
+            list.appendChild(ul);
+        }
+
+        function FetchAllData() {
+            firebase.database().ref('PatientUpdates').on('value', function(snapshot) {
+                snapshot.forEach(
+                    function(ChildSnapshot) {
+                        let name = ChildSnapshot.val().name;
+                        let OxygrnLevel = ChildSnapshot.val().OxygrnLevel;
+                        let COVIDpositive = ChildSnapshot.val().COVIDpositive;
+                        let CurrentDate = ChildSnapshot.val().CurrentDate;
+                        let CurrnetTime = ChildSnapshot.val().CurrnetTime;
+                        let Pulse = ChildSnapshot.val().Pulse;
+                        let diaBP = ChildSnapshot.val().diaBP;
+                        let sysBP = ChildSnapshot.val().sysBP;
+
+                        addItemsToList(name, OxygrnLevel, COVIDpositive, CurrentDate, CurrnetTime, Pulse, diaBP, sysBP);
+                    }
+                );
+            });
+        }
+
+        window.onload = FetchAllData();
+    </script>
+</body>
+
+</html>

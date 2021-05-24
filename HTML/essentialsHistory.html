@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reso.css">
+</head>
+
+<body>
+    <div id="list" class="card d"></div>
+    <ul>
+
+    </ul>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+
+    <script id="MainScript">
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyA8Se1u5bYf34kIGFVIdKahdB5WunXWg0Y",
+            authDomain: "donateform-96861.firebaseapp.com",
+            databaseURL: "https://donateform-96861-default-rtdb.firebaseio.com",
+            projectId: "donateform-96861",
+            storageBucket: "donateform-96861.appspot.com",
+            messagingSenderId: "1035749904577",
+            appId: "1:1035749904577:web:84fd06d1e9b0478ed0c440"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var pID = 0;
+
+        function addItemsToList(name, equipment, state, district, pincode, phone, des_equi) {
+            var list = document.getElementById('list');
+            var header = document.createElement('h2');
+            var ul = document.createElement('ul');
+            var ul = document.createElement('div');
+            header.innerHTML = equipment + (++pID);
+
+            var _name = document.createElement('li');
+            var _equipment = document.createElement('li');
+            var _state = document.createElement('li');
+            var _district = document.createElement('li');
+            var _pincode = document.createElement('li');
+            var _phone = document.createElement('li');
+            var _des_equi = document.createElement('li');
+
+            _name.innerHTML = 'Name : ' + name;
+            _equipment.innerHTML = 'Equipment : ' + equipment;
+            _state.innerHTML = 'State : ' + state;
+            _district.innerHTML = 'District : ' + district;
+            _pincode.innerHTML = 'Pincode : ' + pincode;
+            _phone.innerHTML = 'Phone : ' + phone;
+            _des_equi.innerHTML = 'Description : ' + des_equi;
+
+            ul.appendChild(header);
+            ul.appendChild(_name);
+            ul.appendChild(_equipment);
+            ul.appendChild(_state);
+            ul.appendChild(_district);
+            ul.appendChild(_pincode);
+            ul.appendChild(_phone);
+            ul.appendChild(_des_equi);
+
+            list.appendChild(ul);
+        }
+
+        function FetchAllData() {
+            firebase.database().ref('Essentials').on('value', function(snapshot) {
+                snapshot.forEach(
+                    function(ChildSnapshot) {
+                        let name = ChildSnapshot.val().name;
+                        let equipment = ChildSnapshot.val().equipment;
+                        let state = ChildSnapshot.val().state;
+                        let district = ChildSnapshot.val().district;
+                        let pincode = ChildSnapshot.val().pincode;
+                        let phone = ChildSnapshot.val().phone;
+                        let des_equi = ChildSnapshot.val().des_equi;
+
+                        addItemsToList(name, equipment, state, district, pincode, phone, des_equi);
+                    }
+                );
+            });
+        }
+
+        window.onload = FetchAllData();
+    </script>
+</body>
+
+</html>

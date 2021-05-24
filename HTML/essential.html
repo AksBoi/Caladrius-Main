@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Donor Information</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+    <link rel="stylesheet" href="../css/essentialstyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="brand"><span>Caladrius</span>Donor Info</h1>
+        <div class="wrapper">
+            <div class="company-info">
+                <h1>Donate Now!!</h1>
+                <a href="../index.html">
+                    <button class="button button--ujarak button--border-thin button--text-thick">HOME</button>
+
+                </a>
+
+
+            </div>
+            <div class="contact">
+                <h3>Submit Info</h3>
+                <div class="alert">Your INFORMATION has been recorded!!!</div>
+                <form id="contactForm">
+                    <p>
+                        <label>Name of Donor</label>
+                        <input type="text" name="name" id="name" required>
+                    </p>
+                    <p>
+                        <label>Equipment to be donated:</label>
+                        <select name="equipment" id="equip">
+                <option value="">oximeter</option>
+                <option value="">oxygen concentrator</option>
+                <option value="">oxygen cylinder</option>
+                <option value="">PPE kit</option>
+                <option value="">wheel chair</option>
+                <option value="">Others</option>
+              
+            </select>
+                    </p>
+                    <p>
+                        <label>State</label>
+                        <input type="text" name="state" id="state" required>
+                    </p>
+                    <p>
+                        <label>District</label>
+                        <input type="text" name="district" id="district" required>
+                    </p>
+                    <p>
+                        <label>Pincode</label>
+                        <input type="text" name="pincode" maxlength="6" id="pincode" pattern="\d{6}" required>
+                    </p>
+                    <p>
+                        <label>Phone</label>
+                        <input type="text" name="phone" maxlength="10" id="phone" pattern="\d{10}" title="Please enter exactly 10 digits" required>
+                    </p>
+                    <p>
+                        <label>Image of Equipment</label>
+                        <input type="file" name="eimg" id="eimg" required>
+                    </p>
+                    <p>
+                        <label>Description of equipment</label>
+                        <input type="text" name="des_equi" id="des_equi" required>
+                    </p>
+                    <p>
+                        You agree to all the<a href="T&C.html"> T&C:</a><input type="checkbox" name="myEligibility" required>
+                    </p>
+
+                    <p class="full">
+                        <button type="submit">Submit</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+    <script src="../js/main (3).js"></script>
+</body>
+
+</html>

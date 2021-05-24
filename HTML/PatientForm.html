@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patient Information</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+    <link rel="stylesheet" href="../css/tooplate-gymso-style.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/PatientForm.css">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="brand"><span>Caladrius</span> Pateint Form</h1>
+        <a href="https://d2pcaladriuschat.netlify.app" class="btn custom-btn bordered mt-3">CHAT WITH DOCTOR</a>
+        <div class="wrapper">
+            <div class="company-info">
+                <h1>Update Your Readings After every 3hrs</h1>
+                <a href="../index.html">
+                    <button class="button button--ujarak button--border-thin button--text-thick">HOME</button>
+
+                </a>
+
+
+            </div>
+            <div class="contact">
+                <h3>Submit Info</h3>
+                <div class="alert">Your INFORMATION has been recorded!!!</div>
+                <form id="contactForm">
+
+                    <label>Patient Updation ID</label>
+                    <input type="text" name="name" id="name" required>
+
+                    <label>Covid Positive</label>
+                    <select name="CP" id="CP">
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
+          </select>
+
+                    <label>Current Date</label>
+                    <input type="date" name="CD" id="CD" required>
+                    </select>
+
+                    <label>Current Time</label>
+                    <input type="time" name="CT" id="CT" required>
+                    </select>
+
+                    <label> SpO2 Level</label>
+                    <select name="spo" id="spo" required>
+            <option value="95-100">95%-100%</option>
+            <option value="85-95">85%-95%</option>
+            <option value="80-85">80%-85%</option>
+            <option value="Lesser than 80">Lesser than 80%</option>
+          </select>
+
+                    <label>Pulse Rate</label>
+                    <select name="Pulse" id="Pulse" required>
+            <option value="Lesser than 65">Lesser than 65</option>
+            <option value="65-80">65-80</option>
+            <option value="80-87">80-87</option>
+            <option value="More than 80">More than 80</option>
+          </select>
+
+
+                    <label>Diastolic Blood Pressure:</label>
+                    <select name="diaBP" id="diaBP" required>
+            <option value="Lower than 80">Lower than 80 mmHg</option>
+            <option value="80-89">80mmHg - 89mmHg</option>
+            <option value="90-120">90mmHg - 120mmHg</option>
+            <option value="120 or more">120mmHg or more</option>
+          </select>
+
+
+                    <label>Systolic Blood Pressure:</label>
+                    <select name="sysBP" id="sysBP" required>
+            <option value="Below 120">Below 120mmHg</option>
+            <option value="130-139">130mmHg - 139mmHg</option>
+            <option value="140-180">140mmHg - 180mmHg</option>
+            <option value="180 or more">180mmHg or more</option>
+          </select>
+
+
+                    <a href="T&C.html">You agree to all the T&C:</a><input type="checkbox" name="myEligibility" required>
+
+
+                    <p class="full">
+                        <button type="submit">Submit</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+    <script src="../js/main (1).js"></script>
+</body>
+
+</html>
