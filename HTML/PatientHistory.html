@@ -71,6 +71,44 @@
 
             list.appendChild(ul);
         }
+        
+//          function addItemsToList(name, OxygrnLevel, COVIDpositive, CurrentDate, CurrnetTime, Pulse, diaBP, sysBP) {
+//             var list = document.getElementById('list');
+//             var header = document.createElement('h2');
+//             var ul = document.createElement('ul');
+//             var ul = document.createElement('div');
+//             header.innerHTML = 'Record-' + (++pID);
+
+//             var _name = document.createElement('li');
+//             var _COVIDpositive = document.createElement('li');
+//             var _CurrentDate = document.createElement('li');
+//             var _CurrnetTime = document.createElement('li');
+//             var _OxygrnLevel = document.createElement('li');
+//             var _Pulse = document.createElement('li');
+//             var _diaBP = document.createElement('li');
+//             var _sysBP = document.createElement('li');
+
+//             _name.innerHTML = 'Name:' + name;
+//             _COVIDpositive.innerHTML = 'COVID positive : ' + COVIDpositive;
+//             _CurrentDate.innerHTML = 'Reporting Date : ' + CurrentDate;
+//             _CurrnetTime.innerHTML = 'Reporting Time : ' + CurrnetTime;
+//             _OxygrnLevel.innerHTML = 'Oxygen Level :' + OxygrnLevel;
+//             _Pulse.innerHTML = 'Pulse : ' + Pulse;
+//             _diaBP.innerHTML = 'diaBP : ' + diaBP;
+//             _sysBP.innerHTML = 'sysBP : ' + sysBP;
+
+//             ul.appendChild(header);
+//             ul.appendChild(_name);
+//             ul.appendChild(_COVIDpositive);
+//             ul.appendChild(_CurrentDate);
+//             ul.appendChild(_CurrnetTime);
+//             ul.appendChild(_OxygrnLevel);
+//             ul.appendChild(_Pulse);
+//             ul.appendChild(_diaBP);
+//             ul.appendChild(_sysBP);
+
+//             list.appendChild(ul);
+//         }
 
         function FetchAllData() {
             firebase.database().ref('PatientUpdates').on('value', function(snapshot) {
